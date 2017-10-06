@@ -71,3 +71,27 @@ updated: 2017-10-5 17:50
 18.箭头函数看上去是匿名函数的一种简写，但实际上，箭头函数和匿名函数有个明显的区别：箭头函数内部的this是词法作用域，由上下文确定
 
 19.Generator（生成器）可以在执行过程中多次返回，所以它看上去就像一个可以记住执行状态的函数
+
+# 对象
+
+1.使用Number、Boolean和String时，没有写new会被当做普通的函数调用。
+
+2.JavaScript不区分类和实例的概念，而是通过原型（prototype）来实现面向对象编程。所有对象都是实例，所谓继承关系不过是把一个对象的原型指向另一个对象而已。Object.create(Student)
+
+3.每个对象都有 __proto__ （代表这个对象的原型是哪个对象）属性，但只有函数对象才有 prototype（是函数对象的一个属性，可以理解为构造函数的一个实例对象） 属性
+
+4.constructor（构造函数）属性，这个属性（是一个指针）指向 prototype 属性所在的函数
+
+5.对象继承
+
+```javascript
+
+function inherits(Child, Parent) {
+    var F = function () {};
+    F.prototype = Parent.prototype;//原型变为父亲的原型
+    Child.prototype = new F();//新建实例
+    Child.prototype.constructor = Child;//修改构造函数指针
+}
+```
+
+6.ES6支持class
