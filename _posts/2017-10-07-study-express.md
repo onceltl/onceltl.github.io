@@ -52,7 +52,7 @@ var router = express.Router();
 如果路由句柄有多个回调函数，可使用 ‘route’ 参数跳到下一个路由句柄。
 
 
-##渲染引擎
+## 渲染引擎
 
 使用一下代码就能改为html模板，html中需要的js代码资源都放在public文件中
 
@@ -65,9 +65,9 @@ app.set('view engine', 'html');
 
 ```
 
-#使用
+# 使用
 
-##Windows
+## Windows
 
 1.官网下载msi安装node.js+npm
 
@@ -90,24 +90,34 @@ views是视图文件，放置模板文件ejs或jade等（其实就相当于html�
 
 ```
 
-#MongoDB数据库
+# MongoDB数据库
 
 node.js中可以使用mongoose包驱动数据库。
 
 
-##mongoose使用
+## mongoose使用
 
 	简要介绍见：http://www.cnblogs.com/winyh/p/6682039.html
 	官方文档：http://www.nodeclass.com/api/mongoose.html
 
-#单元测试
+# 单元测试
 
 
 单元测试框架mocha:https://mochajs.org/
 
 断言库should:https://github.com/tj/should.js
 
+模拟http协议supertest:https://github.com/visionmedia/supertest
+
 覆盖率工具nyc(istanbul原来的用法不能用了,可能是版本过期了)：https://istanbul.js.org/
+
+# session&cookie
+
+http协议是无状态的，需要使用session和cookie来保持连接和状态
+
+无论使用何种服务端技术，只要发送回的HTTP响应中包含如下形式的头，则视为服务器要求设置一个cookie：
+
+Set-cookie:name=name;expires=date;path=path;domain=domain
 
 
 
